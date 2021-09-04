@@ -1,0 +1,51 @@
+Смена страницы excel
+
+Option Explicit
+
+Sub CTRLPageUp()
+
+'Assigned hot key Ctrl + U
+
+On Error Resume Next
+
+Dim iActive As Integer
+
+iActive = ActiveSheet.Index
+
+If iActive = Worksheets.Count Then
+
+Worksheets(1).Activate
+
+Else
+
+Worksheets(ActiveSheet.Index + 1).Activate
+
+End If
+
+If Err Then Err.Clear
+
+End Sub
+
+Sub CTRLPageDown()
+
+'Assigned hot key Ctrl + D
+
+On Error Resume Next
+
+Dim iActive As Integer
+
+iActive = ActiveSheet.Index
+
+If iActive = 1 Then
+
+Worksheets(Worksheets.Count).Activate
+
+Else
+
+Worksheets(iActive - 1).Activate
+
+End If
+
+If Err Then Err.Clear
+
+End Sub
